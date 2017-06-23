@@ -87,6 +87,12 @@ public class MainActivity extends AppCompatActivity {
         picture = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         picturePath = picture.getPath();
         data = Uri.parse(picturePath);
+        photo.putExtra("crop","true");
+        photo.putExtra("aspectX",1);
+        photo.putExtra("aspectY",1);
+        photo.putExtra("outputX",1);
+        photo.putExtra("outputY",1);
+        photo.putExtra("return-data","true");
         photo.setDataAndType(data, "image/*");
         startActivityForResult(photo, REQUEST_CODE1);
     }
@@ -99,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
                 InputStream inputStream;
                 final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 final ImageView imgPicture = new ImageView(this);
+                Bundle extras=data.getExtras();
+                bitmap=extras.getParcelable("data");
                 imgPicture.setLayoutParams(lparams);
                 try {
                     inputStream = getContentResolver().openInputStream(imageUri);

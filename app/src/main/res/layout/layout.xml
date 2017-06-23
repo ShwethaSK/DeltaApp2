@@ -143,11 +143,10 @@
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="80dp"
+            android:layout_width="106dp"
             android:layout_height="match_parent"
             android:onClick="delete_caption"
-            android:text="DELETE CAPTION"
-            android:layout_weight="0.50" />
+            android:text="DELETE CAPTION" />
 
         <Button
             android:id="@+id/button2"
